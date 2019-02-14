@@ -1,0 +1,24 @@
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: true
+  instance:
+    preferIpAddress: true
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+    
+server:
+  port: 8079
+    
+spring:
+  application:
+    name: ROUTER-SERVICE
+zuul:
+  ignoredServices: '*'
+  routes:
+    hello-service:
+      path: /SIMS/hello-service/v1/**
+      service-id: hello-service
