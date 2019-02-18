@@ -1,6 +1,6 @@
 eureka:
   client:
-    fetchRegistry: true
+#    fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
     healthcheck:
@@ -22,3 +22,4 @@ zuul:
     hello-service:
       path: /SIMS/hello-service/v1/**
       service-id: hello-service
+      strip-prefix: false
